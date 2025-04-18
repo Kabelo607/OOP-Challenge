@@ -1,25 +1,36 @@
 class Pet:
     def __init__(self, name):
         self.name = name
-        self.hunger = 5
+        self.hunger = 5      
         self.energy = 5
         self.happiness = 5
-        self.tricks = []
 
     def eat(self):
-        # TODO
+        self.hunger = max(0, self.hunger - 3)
+        self.happiness = min(10, self.happiness + 1)
 
     def sleep(self):
-        # TODO
+        self.energy = min(10, self.energy + 5)
 
     def play(self):
-        # TODO
-
-    def train(self, trick):
-        # TODO
-
-    def show_tricks(self):
-        # TODO
+        self.energy = max(0, self.energy - 2)
+        self.happiness = min(10, self.happiness + 2)
+        self.hunger = min(10, self.hunger + 1)
 
     def get_status(self):
-        # TODO
+        print(f"Pet: {self.name}")
+        print(f"Hunger: {self.hunger} (0 = full, 10 = very hungry)")
+        print(f"Energy: {self.energy} (0 = tired, 10 = fully rested)")
+        print(f"Happiness: {self.happiness} (0-10)")
+
+bobby = Pet("Bobby")
+
+
+
+bobby.eat()
+
+bobby.sleep()
+
+bobby.play()
+
+bobby.get_status()
